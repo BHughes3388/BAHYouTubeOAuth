@@ -1,0 +1,14 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'BAHYouTubeOAuth', :exclusive => true do
+  pod "BAHYouTubeOAuth", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "BAHYouTubeOAuth", :path => "../"
+
+  pod 'Specta', :git => 'https://github.com/specta/specta.git', :tag => 'v0.3.0.beta1'
+  pod 'Expecta'
+  pod 'FBSnapshotTestCase'
+  pod 'Expecta+Snapshots'
+end

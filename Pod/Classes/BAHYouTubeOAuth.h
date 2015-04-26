@@ -25,7 +25,8 @@ typedef void (^YouTubeCompletelion)(BOOL success, NSString *youTubeToken, NSStri
                                               state:(NSString*)state
                                      appURLCallBack:(NSString*)appURLCallBack
                                          accessType:(NSString*)youTubeAccessType
-                                             sender:(id)sender:(void (^)(BOOL success, NSString *youTubeToken, NSString *youTubeRefreshToken))completelion;
+                                     viewController:(id)viewController
+                                                   :(void (^)(BOOL success, NSString *youTubeToken, NSString *youTubeRefreshToken))completelion;
 
 
 @end

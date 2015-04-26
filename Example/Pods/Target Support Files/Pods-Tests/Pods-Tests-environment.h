@@ -16,7 +16,7 @@
 #define COCOAPODS_POD_AVAILABLE_Expecta
 #define COCOAPODS_VERSION_MAJOR_Expecta 0
 #define COCOAPODS_VERSION_MINOR_Expecta 4
-#define COCOAPODS_VERSION_PATCH_Expecta 0
+#define COCOAPODS_VERSION_PATCH_Expecta 2
 
 // Expecta+Snapshots
 #define COCOAPODS_POD_AVAILABLE_Expecta_Snapshots

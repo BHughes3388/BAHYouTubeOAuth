@@ -5,11 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/BAHYouTubeOAuth.svg?style=flat)](http://cocoadocs.org/docsets/BAHYouTubeOAuth)
 [![Platform](https://img.shields.io/cocoapods/p/BAHYouTubeOAuth.svg?style=flat)](http://cocoadocs.org/docsets/BAHYouTubeOAuth)
 
+## Preview
+
+![](http://img.photobucket.com/albums/v235/rx7anator/Mobile%20Applications/6bffa370-627d-43b7-8128-136d11700b27_zpsgdk1fbjo.png) ![](http://img.photobucket.com/albums/v235/rx7anator/Mobile%20Applications/VimeoOAuth_zpsl69a72mp.gif)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 
@@ -17,6 +19,44 @@ BAHYouTubeOAuth is available through [CocoaPods](http://cocoapods.org). To insta
 it, simply add the following line to your Podfile:
 
     pod "BAHYouTubeOAuth"
+
+## Setup
+
+Import
+```Objective-C
+#import "BAHYouTubeOAuth.h"
+```
+
+Where ever you would like your user to login to YouTube and retrieve a token 
+```Objective-C
+BAHYouTubeOAuth *youTubeOAuth = [[BAHYouTubeOAuth alloc]init];
+
+[youTubeOAuth authenticateWithYouTubeUsingYouTubeClientID:youTubeClientID
+                                      youTubeClientSecret:youTubeClientSecret
+                                            responseType:response_type
+                                                   scope:scope
+                                                   state:state
+                                          appURLCallBack:redirectURI
+                                              accessType:access_type
+                                          viewController:self
+                                                        :^(BOOL success, NSString *youTubeToken, NSString *youTubeRefreshToken) {
+
+                                                            if (success) {
+                                                                //the token you will use to request right now
+                                                                [[NSUserDefaults standardUserDefaults] setObject:youTubeToken forKey:@"youtube_token"];
+                                                                //token you can use to request a new token on your behalf for requestion later
+                                                                //this only shows when you ask for "offline access"
+                                                                [[NSUserDefaults standardUserDefaults] setObject:youTubeRefreshToken forKey:@"youtube_refresh"];
+
+                                                                [[NSUserDefaults standardUserDefaults] synchronize];
+
+                                                                //Do whatever you need with the token
+                                                                
+                                                                }
+
+
+                                                            }];
+```
 
 ## Author
 

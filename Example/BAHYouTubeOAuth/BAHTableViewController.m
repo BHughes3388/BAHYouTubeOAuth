@@ -17,14 +17,6 @@
 
 @implementation BAHTableViewController
 
-static NSString *youTubeClientID =@"26824236956-hdhrfrkf309upo5dp9rrpg51ejfop2qa.apps.googleusercontent.com";
-static NSString *youTubeClientSecret = @"JNGcNW7LyQ4YORYK4PcjqkSU";
-static NSString *redirectURI = @"http://bladerfeed.comyr.com/oauth2callback";
-static NSString *response_type = @"code";
-static NSString *scope = @"https://www.googleapis.com/auth/youtube.readonly";
-static NSString *state = @"BladerFeed";
-static NSString *access_type = @"offline";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,45 +28,8 @@ static NSString *access_type = @"offline";
 
     videoArray = [[NSMutableArray alloc]init];
 
-    [self performSelector:@selector(authorizeWithYouTube) withObject:nil afterDelay:2.0f];
+    [self requestVideosFromYouTube];
 
-}
-- (void)authorizeWithYouTube{
-    
-    NSLog(@"inside authorizeYouTube");
-    
-    BAHYouTubeOAuth *youTubeOAuth = [[BAHYouTubeOAuth alloc]init];
-    
-    [youTubeOAuth authenticateWithYouTubeUsingYouTubeClientID:youTubeClientID
-                                          youTubeClientSecret:youTubeClientSecret
-                                                 responseType:response_type
-                                                        scope:scope
-                                                        state:state
-                                               appURLCallBack:redirectURI
-                                                   accessType:access_type
-                                                       sender:self
-                                                             :^(BOOL success, NSString *youTubeToken, NSString *youTubeRefreshToken) {
-                                                                 
-                                                                 if (success) {
-                                                                     //the token you will use to request right now
-                                                                     [[NSUserDefaults standardUserDefaults] setObject:youTubeToken forKey:@"youtube_token"];
-                                                                     //token you can use to request a new token on your behalf for requestion later
-                                                                     //this only shows when you ask for "offline access"
-                                                                     [[NSUserDefaults standardUserDefaults] setObject:youTubeRefreshToken forKey:@"youtube_refresh"];
-                                                                     
-                                                                     [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                     
-                                                                    [self requestVideosFromYouTube];
-                                                                     
-                                                                 }
-
-                                                                 
-                                                                 
-                                                                 
-                                                                 
-                                                                 
-                                                                 
-                                                             }];
 }
 
 - (void)requestVideosFromYouTube{
@@ -145,6 +100,11 @@ static NSString *access_type = @"offline";
 }
 
 #pragma mark - Table view data source
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    return @"YouTube Videos";
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.

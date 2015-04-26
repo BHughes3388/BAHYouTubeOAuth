@@ -25,9 +25,12 @@ static NSString *youTubeTokenURL = @"https://accounts.google.com/o/oauth2/token"
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:229.0f/255 green:45.0f/255 blue:39.0f/255 alpha:1.0f]];
     
     UIImageView *logo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 80)];
+    [logo setTintColor:[UIColor whiteColor]];
     [logo setContentMode:UIViewContentModeScaleAspectFit];
-    [logo setImage:[UIImage imageNamed:@"YouTube_logo"]];
+    [logo setImage:[[UIImage imageNamed:@"YouTube.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     [self.navigationItem setTitleView:logo];
+    
+    NSLog(@"image: %@", logo.image);
     
     self.oAuthWebView = [[UIWebView alloc]initWithFrame:self.view.frame];
     [self.oAuthWebView setDelegate:self];
@@ -39,8 +42,6 @@ static NSString *youTubeTokenURL = @"https://accounts.google.com/o/oauth2/token"
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     
-    NSLog(@"load request %@", [request URL]);
-    
     NSString *URLString = [[request URL] absoluteString];
     
     NSString *callBackString = [NSString stringWithFormat:@"%@?", self.uriCallBack];
@@ -50,9 +51,6 @@ static NSString *youTubeTokenURL = @"https://accounts.google.com/o/oauth2/token"
         NSArray *codeArray = [URLString componentsSeparatedByString:@"code="];
         
         NSString *code = [codeArray lastObject];
-        
-        NSLog(@"code %@", code);
-        
         
         NSString *post = [NSString stringWithFormat:@"code=%@&client_id=%@&client_secret=%@&redirect_uri=%@&grant_type=authorization_code", code, self.youtubeClientID, self.youtubeClientSecret, self.uriCallBack];
         
@@ -73,8 +71,6 @@ static NSString *youTubeTokenURL = @"https://accounts.google.com/o/oauth2/token"
             NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
             id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
             
-            NSLog(@"json token data %@", json);
-            
             NSString *token = [json objectForKey:@"access_token"];
             NSString *refreshToken = [json objectForKey:@"refresh_token"];
             if (token && refreshToken) {
@@ -82,12 +78,14 @@ static NSString *youTubeTokenURL = @"https://accounts.google.com/o/oauth2/token"
                 BAHYouTubeOAuth *youTubeOAuth = (BAHYouTubeOAuth*)self.youTubeSender;
                 youTubeOAuth.completelion(YES, token, refreshToken);
                 [self dismissViewControllerAnimated:YES completion:nil];
-
+                
             }else{
                 //TODO: Handle Error
             }
             
         }];
+        
+        return NO;
     }
     
     return YES;

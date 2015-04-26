@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E7F4C621AE08DD500B6870C /* BAHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F4C611AE08DD500B6870C /* BAHTableViewController.m */; };
+		4EDE5E041AEC7BB800847D0C /* BAHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE5E031AEC7BB800847D0C /* BAHViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 		2A2F9734D7646AF34A279EFD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		4E7F4C601AE08DD500B6870C /* BAHTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHTableViewController.h; sourceTree = "<group>"; };
 		4E7F4C611AE08DD500B6870C /* BAHTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHTableViewController.m; sourceTree = "<group>"; };
+		4EDE5E021AEC7BB800847D0C /* BAHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHViewController.h; sourceTree = "<group>"; };
+		4EDE5E031AEC7BB800847D0C /* BAHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHViewController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* BAHYouTubeOAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAHYouTubeOAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +136,8 @@
 				6003F59C195388D20070C39A /* BAHAppDelegate.h */,
 				6003F59D195388D20070C39A /* BAHAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main.storyboard */,
+				4EDE5E021AEC7BB800847D0C /* BAHViewController.h */,
+				4EDE5E031AEC7BB800847D0C /* BAHViewController.m */,
 				4E7F4C601AE08DD500B6870C /* BAHTableViewController.h */,
 				4E7F4C611AE08DD500B6870C /* BAHTableViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -357,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDE5E041AEC7BB800847D0C /* BAHViewController.m in Sources */,
 				6003F59E195388D20070C39A /* BAHAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				4E7F4C621AE08DD500B6870C /* BAHTableViewController.m in Sources */,

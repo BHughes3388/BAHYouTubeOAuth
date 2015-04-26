@@ -14,8 +14,6 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        An optional longer description of BAHYouTubeOAuth
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
                        DESC
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/BAHYouTubeOAuth"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"

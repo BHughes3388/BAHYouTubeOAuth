@@ -29,9 +29,7 @@ static NSString *youTubeTokenURL = @"https://accounts.google.com/o/oauth2/token"
     [logo setContentMode:UIViewContentModeScaleAspectFit];
     [logo setImage:[[UIImage imageNamed:@"YouTube.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     [self.navigationItem setTitleView:logo];
-    
-    NSLog(@"image: %@", logo.image);
-    
+        
     self.oAuthWebView = [[UIWebView alloc]initWithFrame:self.view.frame];
     [self.oAuthWebView setDelegate:self];
     
